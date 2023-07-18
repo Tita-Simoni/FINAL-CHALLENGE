@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+    width: 15rem;
+    height: 2.5rem;
+    padding: 0px 15px;
+    gap: 12px;
+    border-radius: 10px;
+    border: 1px solid #BABABA;
+    background-color: #FFFFFF; 
+}
+
+#search {
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+#inputSearch {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #BABABA;
+}
