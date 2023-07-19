@@ -5,6 +5,7 @@ import logoAudio from './images/LogoAudio.svg';
 import avatar from './images/Avatar.svg';
 import search from './images/search.svg';
 import CardFeatureProducts from './CardFeaturedProducts';
+import CardProducts from './CardProducts';
 
 export default function HomePage () {
   return (
@@ -23,6 +24,7 @@ export default function HomePage () {
         <input id="imputSearch" type="text" placeholder='Search headphone' />                    
       </div>
       <CardFeatureProducts />      
+      <CardProducts />
     </div>
   );
 }

@@ -67,7 +67,7 @@ export default function SignUp () {
                         />
                     </div>
                     {/* <p className="text">Forgot Password</p> */}
-                    <button onClick={HandleSignUp} className="signIn">Sign In</button>
+                    <button onClick={HandleSignUp} className="defaultBtn">Sign Up</button>
                     <div className="icons">
                         <button className="btIcon">
                             <img src={apple} className="icon" alt="Apple Icon" />

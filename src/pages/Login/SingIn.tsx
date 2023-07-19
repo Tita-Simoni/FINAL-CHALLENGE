@@ -65,7 +65,7 @@ export default function SignIn () {
                         />
                     </div>
                     <p className="text">Forgot Password</p>
-                    <button onClick={HandleSignIp} className="signIn">Sign In</button>
+                    <button onClick={HandleSignIp} className="defaultBtn">Sign In</button>
                     <p className="text" id="t2">Didn't have any account? 
                         <Link to="/SignUp"> Sign Up Here</Link></p>                
                 </form>

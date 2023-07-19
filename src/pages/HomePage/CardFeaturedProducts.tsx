@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
+import Loading from '../Loading/Loading';
 
 import './featuresProducts.css';
 import headphone from './images/headphone.svg';
@@ -29,6 +30,7 @@ interface Review {
 
 export default function CardFeatureProducts () {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     void fetchProducts();
@@ -38,6 +40,7 @@ export default function CardFeatureProducts () {
     try {
       const response = await api.get('/a93df7f1-711b-46ab-96dc-61f4865ddcc9');
       setProducts(response.data as Product[]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -46,67 +49,50 @@ export default function CardFeatureProducts () {
   return (
     <div className="featurePage">
       <section className="filterSection">
-        <div className="navigatorBar">
-          <button className="filterButton">Headphone</button>
-          <button className="filterButton">Headband</button>
-          <button className="filterButton">Earpads</button>
-          <button className="filterButton">Cable</button>
-        </div>
-        <Splide
-            options={{
-              type: 'slide',
-              perPage: 1,
-              perMove: 1,
-              autoplay: true,
-              interval: 3000,
-              pagination: false,
-              arrows: false,              
-            }}
-            >
-              {products.map((product) => (
-                <SplideSlide key={product.id}>
-                  <div className="containerBlock">
-                    <div>
-                      <p className="productName">{product.name}<br />{product.category}</p>
-                      <div className="shopArrow">
-                        <p className="shopNow">Shop now</p>
-                        <img src={arrow} alt="Arrow" />
-                      </div>
-                    </div>
-                    <img className="productImg" id="filterImage" src={headphone} alt="Product Image" />
-                  </div>
-                </SplideSlide>
-              ))}           
-            </Splide>
-      </section>
-      <section className="featureSection">
-          <div className="containerFeatures">
-              <p className="featureTitle">Featured Products</p>
-              <p className="featureSubTitle">See All</p>
-          </div>
+        <Splide 
+          options={{
+            type: 'slide',
+            autoplay: false,
+            pagination: false,
+            arrows: false,              
+          }}
+        >
+          <SplideSlide>
+            <div className="navigatorBar">
+              <button className="filterButton">Headphone</button>
+              <button className="filterButton">Headband</button>
+              <button className="filterButton">Earpads</button>
+              <button className="filterButton">Cable</button>
+            </div>
+          </SplideSlide>
+        </Splide>
+        {loading ? (<Loading />) : (
           <Splide
-            options={{
-              type: 'slide',
-              perPage: 2,
-              perMove: 1,
-              autoplay: true,
-              interval: 3000,
-              pagination: false,
-              arrows: false,             
-            }}
-            >
-              {products.map((product) => (
-                <SplideSlide key={product.id}>
-                  <div className="containerProducts">
-                      <img className="productImg-2" src={headphone} alt="Product Image" />
-                      <div className="productFeatures">
-                          <p className="productName-2">{product.name}</p>
-                          <p className="productExtra">{product.price}</p>
+              options={{
+                type: 'slide',
+                perPage: 1,
+                perMove: 1,
+                autoplay: false,
+                pagination: false,
+                arrows: false,              
+              }}
+              >
+                {products.map((product) => (
+                  <SplideSlide key={product.id}>
+                    <div className="containerBlock">
+                      <div className="productBox">
+                        <p className="productName">{product.name}</p>
+                        <div className="shopArrow">
+                          <p className="shopNow">Shop now</p>
+                          <img src={arrow} alt="Arrow" />
+                        </div>
                       </div>
-                  </div>                
-                </SplideSlide>                 
-              ))}                                                        
-            </Splide>
+                      <img className="productImg" id="filterImage" src={headphone} alt="Product Image" />
+                    </div>
+                  </SplideSlide>
+                ))}           
+              </Splide>
+        )}
       </section>
     </div>
   );

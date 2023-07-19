@@ -6,8 +6,7 @@
 
 .imageBackground {
    background-image: url(./images/background.png);
-   background-size: cover;   
-     
+   background-size: cover;        
 }
 
 .containerLogin {
@@ -51,8 +50,7 @@ h1 {
     margin-left: 1rem;
     border-radius: 10px;
     border: 1px solid #BABABA;
-    background-color: #fff;
- 
+    background-color: #fff; 
 }
 
 input {
@@ -74,7 +72,7 @@ input {
     padding-top: 1rem;    
 }
 
-.signIn {
+.defaultBtn {
     width: 14rem;
     height: 2rem;
     padding: 20px 10px;
