@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import SearchPage from './pages/Search/SearchPage';
 import ExplorePage from './pages/ExploreProduct/ExplorePage';
 import DetailPage from './pages/ProductDetail/DetailPage';
+import CartPage from './pages/ShoppingCart/CartPage';
 
 import './inex.css';
 
@@ -17,7 +18,8 @@ export default function App () {
             <Route path="/home" element={<HomePage />} />   
             <Route path="/searchPage" element={<SearchPage />} />
             <Route path="/explorePage" element={<ExplorePage />} />       
-            <Route path="/detailPage/:id" element={<DetailPage />} />            
+            <Route path="/detailPage/:id" element={<DetailPage />} />      
+            <Route path="/cartPage" element={<CartPage />} />
         </Routes>
     </BrowserRouter>  
   );
