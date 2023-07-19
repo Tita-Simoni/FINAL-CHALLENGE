@@ -3,7 +3,7 @@ import chevron from '../Search/images/chevron-left.svg';
 import shoppingCart from '../Search/images/shopping-cart.svg';
 import slider from './images/sliders.svg';
 
-import CardFeatureProducts from './CardExploreProducts';
+import CardExploreProducts from './CardExploreProducts';
 
 export default function ExplorePage () {
   return (
@@ -20,7 +20,7 @@ export default function ExplorePage () {
           <img src={slider} alt=" "/>
           <button id="btnFilter">Filter</button>
         </div>
-        <CardFeatureProducts />
+        <CardExploreProducts />
     </div>
   );
 }

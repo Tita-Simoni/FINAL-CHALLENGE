@@ -17,7 +17,7 @@ export default function App () {
             <Route path="/home" element={<HomePage />} />   
             <Route path="/searchPage" element={<SearchPage />} />
             <Route path="/explorePage" element={<ExplorePage />} />       
-            <Route path="/detailPage" element={<DetailPage />} />
+            <Route path="/detailPage/:id" element={<DetailPage />} />            
         </Routes>
     </BrowserRouter>  
   );

@@ -6,6 +6,7 @@ import avatar from './images/Avatar.svg';
 import search from './images/search.svg';
 import CardFeatureProducts from './CardFeaturedProducts';
 import CardProducts from './CardProducts';
+import { Link } from 'react-router-dom';
 
 export default function HomePage () {
   return (
@@ -19,10 +20,10 @@ export default function HomePage () {
         <p id="welcome">Hi, Tita</p>
         <h2>What are you looking for today?</h2>
       </section>
-      <div className="searchBox">
-        <img id="search" src={search} alt="Search Icon" />                
-        <input id="imputSearch" type="text" placeholder='Search headphone' />                    
-      </div>
+      <Link to="/searchPage" className="searchBox">
+        <img id="search" src={search} alt="Search Icon" />     
+        <p className="searchLink">Search headphone</p>                   
+      </Link>
       <CardFeatureProducts />      
       <CardProducts />
     </div>

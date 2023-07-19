@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import Loading from '../Loading/Loading';
 
@@ -50,7 +51,9 @@ export default function CardProducts () {
       <section className="featureSection">
           <div className="containerFeatures">
               <p className="featureTitle">Another Products</p>
-              <p className="featureSubTitle">See All</p>
+              <Link to="/explorePage">
+                <p className="featureSubTitle">See All</p>
+              </Link>
           </div>
           {loading ? (<Loading />) : (
             <Splide
@@ -66,12 +69,14 @@ export default function CardProducts () {
                 {products.map((product) => (
                   <SplideSlide key={product.id}>
                     <div className="containerProducts">
-                        <img className="productImg-2" src={headphone} alt="Product Image" />
-                        <div className="productFeatures">
-                            <p className="productName-2">{product.name}</p>
-                            <p className="productExtra">{product.price}</p>
-                        </div>
-                    </div>                
+                      <Link to={`/detailPage/${product.id}`}>
+                          <img className="productImg-2" src={headphone} alt="Product Image" />
+                          <div className="productFeatures">
+                              <p className="productName-2">{product.name}</p>
+                              <p className="productExtra">{product.price}</p>
+                          </div>
+                      </Link>  
+                    </div>
                   </SplideSlide>                 
                 ))}                                                        
               </Splide>

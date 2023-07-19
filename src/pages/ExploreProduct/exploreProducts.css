@@ -12,14 +12,13 @@
 
 .designPage {
     display: grid;
-    grid-template-columns: 1fr 1fr;    
-    grid-gap: 0;
+    grid-template-columns: 9.5rem 9.5rem;        
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
 .allProducts {
-    width: 7.5rem;
+    width: 8rem;
     height: auto;
     border-radius: 15px;
     background-color: #FFF;
@@ -27,8 +26,7 @@
     margin-left: 1rem;    
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    margin-bottom: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem; 
 }
 
 .productImg-2 {
@@ -50,7 +48,7 @@
     font-weight: 700;    
 }
 
-.reviews {
+.reviewsCard {
     display: flex;
     padding-left: 0.4rem;
     padding-right: 0.4rem;

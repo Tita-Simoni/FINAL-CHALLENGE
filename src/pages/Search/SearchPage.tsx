@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import Loading from '../Loading/Loading';
+import { Link } from 'react-router-dom';
 
 import './searchPage.css';
 import shoppingCart from './images/shopping-cart.svg';
@@ -50,7 +51,9 @@ export default function SearchPage () {
   return (
     <div>
         <section className="menu">
-            <img src={chevron} alt="Chevron Icon" />
+            <Link to="/home">
+              <img src={chevron} alt="Chevron Icon" />
+            </Link>
             <p>Search</p>
             <img src={shoppingCart} alt="Shopping Cart" />
         </section>

@@ -28,17 +28,21 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .review {
     display: grid;
     grid-template-columns: 2.5rem 17rem;
+    margin-bottom: 1rem;
+    
 }
 
 .reviewDescription {
     display: flex;
     flex-direction: column;
     padding-left: 1rem;
+    width: 12.5rem;
 }
 
 #reviewName {
@@ -56,4 +60,15 @@
 #starIcon {
     width: 1rem;
     height: 1rem;
+}
+
+.productNameFeatures {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+#featuresPage {
+    margin-bottom: 2rem;
 }

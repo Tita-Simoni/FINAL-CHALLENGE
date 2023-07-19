@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import Loading from '../Loading/Loading';
 
@@ -82,16 +83,16 @@ export default function CardFeatureProducts () {
                     <div className="containerBlock">
                       <div className="productBox">
                         <p className="productName">{product.name}</p>
-                        <div className="shopArrow">
+                        <Link to={`/detailPage/${product.id}`} className="shopArrow">
                           <p className="shopNow">Shop now</p>
                           <img src={arrow} alt="Arrow" />
-                        </div>
+                        </Link>
                       </div>
                       <img className="productImg" id="filterImage" src={headphone} alt="Product Image" />
                     </div>
                   </SplideSlide>
                 ))}           
-              </Splide>
+          </Splide>
         )}
       </section>
     </div>
