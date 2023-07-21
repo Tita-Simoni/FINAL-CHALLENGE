@@ -56,9 +56,11 @@ export default function DetailPage () {
         <div>
             <section className="menu">
                 <Link to="/home">
-                <img src={chevron} alt="Chevron Icon" />
+                    <img src={chevron} alt="Chevron Icon" />
                 </Link>
-                <img src={shoppingCart} alt="Shopping Cart" />
+                <Link to="/cartPage">
+                    <img src={shoppingCart} alt="Shopping Cart" />
+                </Link>
             </section>
             <section className="productDetail">
                 <p className="detailPrice">{product.price}</p>

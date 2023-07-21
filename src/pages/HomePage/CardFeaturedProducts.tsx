@@ -32,6 +32,7 @@ interface Review {
 export default function CardFeatureProducts () {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     void fetchProducts();
@@ -46,13 +47,19 @@ export default function CardFeatureProducts () {
       console.log(error);
     }
   }
-  
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category === selectedCategory ? null : category);
+  };
+
   return (
     <div className="featurePage">
       <section className="filterSection">
         <Splide 
           options={{
             type: 'slide',
+            perPage: 1,
+            perMove: 1,
             autoplay: false,
             pagination: false,
             arrows: false,              
@@ -60,10 +67,36 @@ export default function CardFeatureProducts () {
         >
           <SplideSlide>
             <div className="navigatorBar">
-              <button className="filterButton">Headphone</button>
-              <button className="filterButton">Headband</button>
-              <button className="filterButton">Earpads</button>
-              <button className="filterButton">Cable</button>
+              <button 
+                className={`filterButton ${
+                  selectedCategory === 'Headphones' ? 'btnSelected' : ''
+                }`}
+                onClick={() => handleCategoryClick("Headphones")}
+              >Headphone</button>
+              <button
+                className={`filterButton ${
+                  selectedCategory === 'Headsets' ? 'btnSelected' : ''
+                }`}
+                onClick={() => handleCategoryClick('Headsets')}
+              >Headset</button>
+              <button 
+                  className={`filterButton ${
+                  selectedCategory === "Headband" ? "btnSelected" : " "
+                }`}
+                onClick={() => handleCategoryClick("Headband")}
+              >Headband</button>
+              <button 
+                className={`filterButton ${
+                  selectedCategory === "Earpads" ? "btnSelected" : " "
+                }`}
+                onClick={() => handleCategoryClick("Earpads")}
+              >Earpads</button>
+              <button 
+                className={`filterButton ${
+                  selectedCategory === "Cable" ? "btnSelected" : " "
+                }`}
+                onClick={() => handleCategoryClick("Cable")}
+              >Cable</button>
             </div>
           </SplideSlide>
         </Splide>
@@ -78,7 +111,10 @@ export default function CardFeatureProducts () {
                 arrows: false,              
               }}
               >
-                {products.map((product) => (
+                {products
+                  .filter((product) =>
+                  !selectedCategory || product.category === selectedCategory)
+                .map((product) => (
                   <SplideSlide key={product.id}>
                     <div className="containerBlock">
                       <div className="productBox">

@@ -14,7 +14,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;    
-    align-items: center;    
+    align-items: center;
     padding-top: 4rem;
 }
 
@@ -41,13 +41,12 @@ h1 {
 
 .inputBox {
     display: flex;
-    width: 12rem;
-    height: 2rem;
+    width: 14rem;
+    height: 2.5rem;
     padding: 0 1rem;
     align-items: center;
     gap: 12px;
     margin-bottom: 1rem;
-    margin-left: 1rem;
     border-radius: 10px;
     border: 1px solid #BABABA;
     background-color: #fff; 
@@ -73,10 +72,11 @@ input {
 }
 
 .defaultBtn {
-    width: 14rem;
+    width: 16rem;
     height: 2rem;
     padding: 20px 10px;
     border-radius: 10px;
+    border: 1px solid #0ACF83;
     background: #0ACF83;
     gap: 10px;
 
@@ -95,6 +95,7 @@ input {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    gap: 1rem;
 }
 
 .icon {

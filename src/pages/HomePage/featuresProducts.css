@@ -25,11 +25,26 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    align-items: center;
     height: 1.5rem;
     color: #7f7f7f;
     padding: 10px 15px;
     border: none;
     background-color: transparent;
+}
+
+.btnSelected {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #0ACF83;
+    border: 1px solid #0ACF83;     
 }
 
 .containerBlock {
