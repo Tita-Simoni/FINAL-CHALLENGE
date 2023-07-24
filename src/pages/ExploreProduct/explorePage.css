@@ -11,7 +11,7 @@
     padding-left: 1.5rem;
 }
 
-.filterBtn {
+.filter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,6 +23,11 @@
     border-radius: 10px;
     border: 1px solid #BABABA;
     background-color: #FFFFFF;
+}
+
+.filterBtn {
+    border: none;
+    background-color: transparent;
 }
 
 #btnFilter {

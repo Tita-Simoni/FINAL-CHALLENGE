@@ -10,15 +10,19 @@
     margin-left: 1rem;    
 }
 
+.productsCart {
+    display: flex;
+    flex-direction: column;    
+}
+
 .productCart {
     width: 4.5rem;
     height: 4.5rem;
     padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex;    
     border-radius: 10px;
     background-color: #F6F6F6;
+    margin-bottom: 1rem;
 }
 
 #productImg {

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css'
 import CardExploreProducts from './CardExploreProducts';
+import Filter from './Filter';
 
 export default function ExplorePage () {  
   const [open, setOpen] = useState(false);
@@ -29,15 +30,17 @@ export default function ExplorePage () {
             <p>Headphone</p>
             <h2>TMA Wireless</h2>
         </section>
-        <div className="filterBtn">
+        <div className="filter">
           <img src={slider} alt=" "/>
           <button         
+            className="filterBtn"
             onClick={() => setOpen(true)}
-          >Open</button>
+          >Filter</button>
           <BottomSheet 
             open={open} 
             onDismiss={handleSheetClose} 
-          >My awesome content here</BottomSheet>
+          ><Filter />
+          </BottomSheet>
         </div>
         <CardExploreProducts />
     </div>

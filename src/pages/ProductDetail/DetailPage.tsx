@@ -2,36 +2,40 @@ import CardProducts from '../HomePage/CardProducts';
 import DetailFeatures from './DetailsFeatures';
 import DetailsOverview from './DetailOverview';
 import { api } from '../../services/api';
-import { useParams  } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-import './detailsPage.css';
+import { useCart } from '../ShoppingCart/useCart';
 import shoppingCart from '../Search/images/shopping-cart.svg';
 import chevron from '../Search/images/chevron-left.svg';
 import Loading from '../Loading/Loading';
+import './detailsPage.css';
 
 interface Product {
     id: number;   
-    price: string;
+    price: string | number;
     name: string;  
 }
 
-export default function DetailPage () {
+export default function DetailPage () {    
     const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
     const [selectedSection, setSelectedSection] = 
-        useState<'overview' | 'features'>('overview');
+        useState<'overview' | 'features'>('overview');        
+    const navigate = useNavigate();
+
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+              if (id) { 
                 const response = await api.get(`/${id}`);
                 const data: Product[] = response.data as Product[];
                 const foundProduct = data.find((product) => product.id === Number(id));
                 setProduct(foundProduct || null);
+              }
             } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
+              console.error('Erro ao buscar os dados:', error);
             }
         };
         
@@ -50,6 +54,13 @@ export default function DetailPage () {
     
     const handleFeaturesClick = () => {
         setSelectedSection('features');
+    };       
+
+    const handleAddToCart = () => {
+        if (addToCart) {
+            addToCart(product);      
+            navigate('/cartPage');      
+        }
     };
 
     return (
@@ -78,7 +89,11 @@ export default function DetailPage () {
                 {selectedSection === 'overview' ? <DetailsOverview /> : <DetailFeatures />}
                 <CardProducts />
                 <div className="btnSection">
-                    <button className="defaultBtn" id="btnDetails">Add To Cart</button>
+                    <button 
+                        className="defaultBtn" 
+                        id="btnDetails"
+                        onClick={handleAddToCart}
+                    >Add To Cart</button>                   
                 </div>
             </section>
         </div>

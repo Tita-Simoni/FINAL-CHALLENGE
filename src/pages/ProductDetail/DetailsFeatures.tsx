@@ -17,16 +17,18 @@ export default function DetailsOverview () {
     const [product, setProduct] = useState<Product | null>(null);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await api.get(`/${id}`);
-                const data: Product[] = response.data as Product[];
-                const foundProduct = data.find((product) => product.id === Number(id));
-                setProduct(foundProduct || null);
-            } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
-            }
-        };
+      const fetchData = async () => {
+        try {
+          if (id) { 
+            const response = await api.get(`/${id}`);
+            const data: Product[] = response.data as Product[];
+            const foundProduct = data.find((product) => product.id === Number(id));
+            setProduct(foundProduct || null);
+          }
+        } catch (error) {
+          console.error('Erro ao buscar os dados:', error);
+        }
+    };
         
         fetchData().catch((error) => {
             console.error('Erro ao buscar os dados:', error);
